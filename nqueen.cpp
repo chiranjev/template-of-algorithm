@@ -77,11 +77,12 @@ bool solveNQueen(int board[][100],int i,int n)
 
 				bool nextQueenPossible=solveNQueen(board,i+1,n);
 
-				if(nextQueenPossible)
+				if(nextQueenPossible){
 					return true;
+				}
+				// means i,j is not the right position - Assumption is wrong
+				board[i][j]=0; // backtrack
 			}
-			// means i,j is not the right position - Assumption is wrong
-			board[i][j]=0; // backtrack
 		}
 
 		return false;  // You have tried for all positions in current row but couldn't place a queen
